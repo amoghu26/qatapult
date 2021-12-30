@@ -1,0 +1,236 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "qata pult",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "QuizGenIntent",
+          "slots": [
+            {
+              "name": "topic",
+              "type": "AMAZON.Genre",
+              "samples": [
+                "I want a quiz generated on the topic {topic}",
+                "Topic is {topic}",
+                "{topic}",
+                "Generate a quiz on {topic}"
+              ]
+            }
+          ],
+          "samples": [
+            "create a quiz",
+            "Generate a quiz"
+          ]
+        },
+        {
+          "name": "QuizHandlingIntent",
+          "slots": [],
+          "samples": [
+            "get quiz",
+            "fetch quiz"
+          ]
+        },
+        {
+          "name": "QuestionIntent",
+          "slots": [
+            {
+              "name": "answer",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "yes please",
+            "next question",
+            "Yes next question",
+            "next",
+            "yes"
+          ]
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "answer",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "I choose {answer}",
+                "I pick {answer}",
+                "It is {answer}",
+                "The answer is {answer}",
+                "{answer}"
+              ]
+            }
+          ],
+          "samples": [
+            "yes would like to answer",
+            "answer"
+          ]
+        },
+        {
+          "name": "EndQuizIntent",
+          "slots": [],
+          "samples": [
+            "stop",
+            "no",
+            "stop quiz",
+            "end quiz",
+            "end"
+          ]
+        },
+        {
+          "name": "PassIntent",
+          "slots": [],
+          "samples": [
+            "skip",
+            "I would like to pass",
+            "pass"
+          ]
+        },
+        {
+          "name": "RepeatIntent",
+          "slots": [],
+          "samples": [
+            "repeat the question please",
+            "repeat the question and answer choices",
+            "repeat",
+            "repeat the question"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "QuizGenIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "topic",
+              "type": "AMAZON.Genre",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.616817716704.614336156044"
+              }
+            }
+          ]
+        },
+        {
+          "name": "QuizHandlingIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": []
+        },
+        {
+          "name": "AnswerIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "answer",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1580022147638.842775899339"
+              }
+            }
+          ]
+        },
+        {
+          "name": "QuestionIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "answer",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.616817716704.614336156044",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Pick a topic and I\u0027ll get the quiz generated for you"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1293185712024.1344189944109",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Would you like to take the quiz?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1580022147638.842775899339",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Whats the answer?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Tell me the answer that you think is correct out of the choices given"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.589873051115.487712474742",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "pick an option with the correct answer"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "34"
+}
